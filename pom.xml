@@ -1,15 +1,46 @@
-# mvn_app_with_slf4j_logger
-A simple java maven application to include sl4j_logger jar during runtime.
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-****************************************************************************************************************************
-Steps to run the java application : 
-****************************************************************************************************************************
+	<groupId>com.emc</groupId>
+	<artifactId>test_logger</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
 
-1. Using maven shade plugin to add 3rd party jars into application jar during runtime :
-    i) For building the jar : Use command : mvn clean package
-    ii) Add plugin :
-	
-        <plugin>
+	<name>test_logger</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+		<!--  	Using maven shade plugin to add 3rd party jars into application jar during runtime 
+				
+				For building the jar :
+				use command : mvn clean package 
+		-->
+		
+		<plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-shade-plugin</artifactId>
             <version>2.1</version>
@@ -30,12 +61,16 @@ Steps to run the java application :
                 </execution>
             </executions>
         </plugin>
-								
-2. 	Using maven-jar & maven-assembly jar plugins to add 3rd party jars into application jar during runtime:
-	i) For building the jar : use command : mvn clean compile assembly:single
-	ii) Add plugin :
-	
-			<plugin>
+		
+		 
+		<!--  	Using maven-jar & maven-assembly jar plugins to add 3rd party jars into application jar 
+				during runtime
+		
+				For building the jar :
+				use command : mvn clean compile assembly:single
+				
+		 -->
+		<!--	<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>3.0.2</version>
@@ -62,5 +97,8 @@ Steps to run the java application :
 					</descriptorRefs>
 				</configuration>
 			</plugin>
+		-->
+		</plugins>
+	</build>
 
-****************************************************************************************************************************								
+</project>
