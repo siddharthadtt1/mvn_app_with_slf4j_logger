@@ -1,4 +1,5 @@
-# mvn_app_with_slf4j_logger
+Maven java application with slf4j-logger jar
+
 A simple java maven application to include sl4j_logger jar during runtime.
 
 ****************************************************************************************************************************
@@ -6,8 +7,10 @@ Steps to run the java application :
 ****************************************************************************************************************************
 
 1. Using maven shade plugin to add 3rd party jars into application jar during runtime :
-    i) For building the jar : Use command : mvn clean package
-    ii) Add plugin :
+    
+i) For building the jar : Use command : mvn clean package
+
+ii) Add plugin :
 	
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -32,7 +35,9 @@ Steps to run the java application :
         </plugin>
 								
 2. 	Using maven-jar & maven-assembly jar plugins to add 3rd party jars into application jar during runtime:
+	
 	i) For building the jar : use command : mvn clean compile assembly:single
+	
 	ii) Add plugin :
 	
 			<plugin>
